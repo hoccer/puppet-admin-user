@@ -86,5 +86,9 @@ class admin-user::install {
     require => File['/home/administrator/.ssh/authorized_keys'],
   }
 
+  if ! defined(Package['apt-dater-host']) {
+    package { 'apt-dater-host': ensure => present, }
+  }
+
 }
 
